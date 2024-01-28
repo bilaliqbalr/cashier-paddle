@@ -631,6 +631,7 @@ class Subscription extends Model
         ]));
 
         $this->forceFill([
+            'type' => $response['custom_data']['subscription_type'] ?? $this->type ?? \Laravel\Paddle\Subscription::DEFAULT_TYPE,
             'status' => $response['status'],
         ])->save();
 
